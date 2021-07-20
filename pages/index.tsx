@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useState } from 'react';
 import Layout from '../components/Layout';
 
 const IndexPage = () => (
@@ -10,7 +11,20 @@ const IndexPage = () => (
         <a>About</a>
       </Link>
     </p>
+    <ToggleButton />
   </Layout>
 );
+
+function ToggleButton() {
+
+  const [isOn, setOn] = useState(false);
+  return (
+    <button onClick={() => {
+      setOn(!isOn);
+    }}>
+      {isOn ? 'Turn off' : 'Turn on'}
+    </button>
+  );
+}
 
 export default IndexPage;
